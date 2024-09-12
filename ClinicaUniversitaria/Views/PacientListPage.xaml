@@ -1,0 +1,35 @@
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ClinicaUniversitaria.Models"
+             xmlns:viewModels="clr-namespace:ClinicaUniversitaria.ViewModels"
+             x:DataType="viewModels:PacientListPageViewModel"
+             x:Class="ClinicaUniversitaria.Views.PacientListPage"
+             Title="Clinica Universitaria">
+    
+    <VerticalStackLayout Margin="10">
+        <Label Text="Lista de Pacientes" FontSize="20"/>
+        <Button Text="Agregar un Paciente" Command="{Binding AddUpdatePacientCommand}" HorizontalOptions="EndAndExpand" />
+
+        <CollectionView ItemsSource="{Binding Pacients}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:PacientModel">
+                    <Frame Margin="10" Padding="10">
+                        <StackLayout Margin="10">
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Mail}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Number}" />
+                                <Label Text="{Binding Birth}" />
+                                <Label Text="{Binding Rol}" />
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:PacientListPageViewModel}}, Path= DisplayActionCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

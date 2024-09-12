@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClinicaUniversitaria.Views.AddUpdatePacientDetail"
+             Title="Agregar / Editar Pacientes">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="SlateGray"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout Margin="10" Spacing="15">
+
+
+        <VerticalStackLayout>
+            <Label Text="Nombre Completo" FontSize="16" />
+            <Entry Text="{Binding PacientDetail.Name}" Placeholder="Nombre Completo" />
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+        </VerticalStackLayout>
+        
+
+
+        <VerticalStackLayout>
+            <Label Text="Correo" FontSize="16" />
+            <Entry Text="{Binding PacientDetail.Mail}" Placeholder="Correo" />
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+        </VerticalStackLayout>
+        
+
+
+        <VerticalStackLayout>
+            <Label Text="Numero de celular" FontSize="16" />
+            <Entry Text="{Binding PacientDetail.Number}" Placeholder="Numero de celular" />
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+
+        </VerticalStackLayout>
+        
+
+        <Label Text="Fecha de Nacimiento" FontSize="16" />
+        <Entry Text="{Binding PacientDetail.Birth}" Placeholder="Fecha de Nacimiento" />
+        <BoxView HeightRequest="0.8" Color="Gray"/>
+
+        <Label Text="Rol / Profesion" FontSize="16" />
+        <Entry Text="{Binding PacientDetail.Rol}" Placeholder="Rol / Profesion" />
+        <BoxView HeightRequest="0.8" Color="Gray"/>
+
+        <Button Text="Guardar" Command="{Binding AddUpdateStudentCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
